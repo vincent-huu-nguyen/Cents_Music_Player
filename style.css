@@ -54,6 +54,13 @@ body{
 .playlist{
     width: 150px;
     margin: 0 auto;  /* This centers horizontally */
+    transition: opacity 0.5s ease; /* Add transition for opacity */
+    opacity: 0; /* Initially hidden */
+}
+
+.playlist-container.active .playlist {
+    opacity: 1; /* Fade in after transition delay */
+    transition-delay: 0.35s; /* Delay the appearance by given seconds */
 }
 
 .playlist h4:hover{
