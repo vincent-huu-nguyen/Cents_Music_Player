@@ -146,6 +146,18 @@ const songs = [
         artist: 'Cents',
     },
     {
+        path: 'assets/Jazz_N_Funk_NS.wav',
+        displayName: 'Jazz N Funk NS',
+        cover: 'assets/jazz_n_funk_ns-Cents.png',
+        artist: 'Cents',
+    },
+    {
+        path: 'assets/DizzyCityRemix.wav',
+        displayName: 'Dizzy City (Boss Remix)',
+        cover: 'assets/dizzy_city_remix-Cents.jpg',
+        artist: 'Cents',
+    },
+    {
         path: 'assets/Starstruck.wav',
         displayName: 'Starstruck',
         cover: 'assets/starstruck-Cents.jpg',

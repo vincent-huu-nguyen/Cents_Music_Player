@@ -103,7 +103,7 @@ h3{
 }
 
 .progress{
-    background-color: #212121;
+    background-color: #000;
     border-radius: 5px;
     height: 100%;
     width: 0%;
@@ -126,7 +126,7 @@ h3{
 
 .fa-solid{
     font-size: 30px;
-    color: #111;
+    color: #000;
     margin-right: 30px;
     cursor: pointer;
     user-select: none;
@@ -134,7 +134,8 @@ h3{
 }
 
 .fa-solid:hover{
-    filter: brightness(10%);
+    /*filter: brightness(10%);*/
+    transform: scale(110%);
 }
 
 .player-button{
