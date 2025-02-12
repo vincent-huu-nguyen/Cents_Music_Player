@@ -233,3 +233,21 @@ music.addEventListener('timeupdate', updateProgressBar);
 playerProgress.addEventListener('click', setProgressBar);
 
 loadMusic(songs[musicIndex]);
+
+document.querySelector('.playlist-container').addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+
+// Add event listeners to all songs in the playlist
+document.querySelectorAll('#songs').forEach(songElement => {
+    songElement.addEventListener('click', () => {
+        // Get the index of the clicked song
+        const songIndex = songElement.getAttribute('data-song-index');
+        const selectedSong = songs[songIndex];
+
+        // Load and play the selected song
+        loadMusic(selectedSong);
+        playMusic();
+    });
+});
