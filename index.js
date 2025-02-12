@@ -239,6 +239,10 @@ document.querySelector('.playlist-container').addEventListener('click', function
 });
 
 
+const playlistContainer = document.querySelector('.playlist-container');
+
+
+
 // Add event listeners to all songs in the playlist
 document.querySelectorAll('#songs').forEach(songElement => {
     songElement.addEventListener('click', () => {
