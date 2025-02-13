@@ -101,7 +101,7 @@ h2{
 
 
 h3{
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     font-weight: 500;
     margin: 10px 0 0;
@@ -115,6 +115,10 @@ h4{
     margin: 10px 0 0;
 }
 
+h5{
+    text-align: center;
+    margin: 10px 0 0;
+}
 
 .player-progress{
     box-shadow: 0 0px 100px 15px rgba(0, 0, 0, 0.4);
@@ -206,6 +210,18 @@ h4{
     transform: scale(110%);
 }
 
+.playlist img{
+    display: block;
+    height: auto;
+    width: 75%; 
+    margin: 0 0 0 12%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;  
+}
+
 .playlist-container.active .playlist {
     opacity: 1; /* Fade in after transition delay */
     transition-delay: 0.35s; /* Delay the appearance by given seconds */
@@ -260,3 +276,8 @@ h4{
     opacity: 75%;
 }
 
+#link{
+    color: #4550e6;
+    text-decoration: underline;
+    text-decoration-color: #4550e6;
+}
