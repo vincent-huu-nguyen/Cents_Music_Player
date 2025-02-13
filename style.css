@@ -47,11 +47,11 @@ body{
     /*background-color: #fff;*/
     position: relative;
     height: 500px;
-    width: 100%;
+    width: 400px;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease;
-    margin: 0 auto;
+    margin: 10%;
 }
 
 
@@ -185,7 +185,7 @@ h4{
     transition: all 0.25s ease;
     z-index: 0; /* Lower z-index to place it behind container*/
     cursor: pointer;
-    margin: 0 auto;
+   
 }
 
 .playlist{
@@ -236,7 +236,7 @@ h4{
     position: relative;
     top: 50px;
     left: 186px;    /*for centering the controls icons*/
-    width: 100%;
+    width: 200px;
     opacity: 75%;
 }
 
@@ -245,7 +245,7 @@ h4{
     position: relative;
     top: -200%;
     left: 186px;    /*for centering the controls icons*/
-    width: auto;
-    opacity: 50%;
+    width: 200px;
+    opacity: 75%;
 }
 
