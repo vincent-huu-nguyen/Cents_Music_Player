@@ -101,7 +101,7 @@ h2{
 
 
 h3{
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     font-weight: 500;
     margin: 10px 0 0;
@@ -109,7 +109,7 @@ h3{
 
 
 h4{
-    font-size: 15px;
+    font-size: 17px;
     text-align: center;
     font-weight: 400;
     margin: 10px 0 0;
@@ -197,14 +197,18 @@ h4{
     display: none;
 }
 
-.playlist-container.active .playlist {
-    opacity: 1; /* Fade in after transition delay */
-    transition-delay: 0.35s; /* Delay the appearance by given seconds */
+.playlist h3{
+    font-size: 19px;
+    font-weight: 750;
 }
-
 
 .playlist h4:hover{
     transform: scale(110%);
+}
+
+.playlist-container.active .playlist {
+    opacity: 1; /* Fade in after transition delay */
+    transition-delay: 0.35s; /* Delay the appearance by given seconds */
 }
 
 
