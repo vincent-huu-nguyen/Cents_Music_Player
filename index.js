@@ -159,7 +159,7 @@ const songs = [
     },
     {
         path: 'assets/Starstruck.wav',
-        displayName: 'Starstruck',
+        displayName: 'Starburst',
         cover: 'assets/starstruck-Cents.jpg',
         artist: 'Cents',
     },
