@@ -238,7 +238,6 @@ document.querySelector('.playlist-container').addEventListener('click', function
     this.classList.toggle('active');
 });
 
-
 const playlistContainer = document.querySelector('.playlist-container');
 
 
@@ -255,3 +254,339 @@ document.querySelectorAll('#songs').forEach(songElement => {
         playMusic();
     });
 });
+
+
+document.getElementById("slideright").addEventListener("click", function () {
+    document.querySelector(".game-container").classList.add("active");
+});
+
+document.getElementById("slideleft").addEventListener("click", function () {
+    document.querySelector(".game-container").classList.remove("active");
+});
+
+// Left Game Container Controls
+document.getElementById("slideleft-arrow").addEventListener("click", function () {
+    document.querySelector(".left-game-container").classList.add("active");
+});
+
+document.getElementById("slideleft-close").addEventListener("click", function () {
+    document.querySelector(".left-game-container").classList.remove("active");
+});
+
+// Snake Game
+const canvas = document.getElementById('snakeCanvas');
+const ctx = canvas.getContext('2d');
+const snakeRestartBtn = document.getElementById('snakeRestartBtn');
+const snakeScoreElement = document.getElementById('snakeScore');
+
+const gridSize = 15;
+const tileCount = canvas.width / gridSize;
+
+let snake = [
+    {x: 10, y: 10}
+];
+let food = {x: 15, y: 15};
+let dx = 0;
+let dy = 0;
+let score = 0;
+let gameRunning = false;
+let gameLoop;
+
+function drawSnake() {
+    ctx.fillStyle = '#000000'; // Black snake
+    snake.forEach(segment => {
+        ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+    });
+}
+
+function drawFood() {
+    ctx.fillStyle = '#ffffff'; // White food
+    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+}
+
+function moveSnake() {
+    const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+    snake.unshift(head);
+    
+    if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        snakeScoreElement.textContent = score;
+        generateFood();
+    } else {
+        snake.pop();
+    }
+}
+
+function generateFood() {
+    food.x = Math.floor(Math.random() * tileCount);
+    food.y = Math.floor(Math.random() * tileCount);
+    
+    // Make sure food doesn't spawn on snake
+    snake.forEach(segment => {
+        if (segment.x === food.x && segment.y === food.y) {
+            generateFood();
+        }
+    });
+}
+
+function checkCollision() {
+    const head = snake[0];
+    
+    // Wall collision
+    if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+        return true;
+    }
+    
+    // Self collision
+    for (let i = 1; i < snake.length; i++) {
+        if (head.x === snake[i].x && head.y === snake[i].y) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+function gameOver() {
+    gameRunning = false;
+    clearInterval(gameLoop);
+    alert(`Game Over! Score: ${score}`);
+}
+
+function update() {
+    if (!gameRunning) return;
+    
+    moveSnake();
+    
+    if (checkCollision()) {
+        gameOver();
+        return;
+    }
+    
+    // Clear canvas with transparent background
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    drawSnake();
+    drawFood();
+}
+
+function startGame() {
+    snake = [{x: 10, y: 10}];
+    food = {x: 15, y: 15};
+    dx = 0;
+    dy = 0;
+    score = 0;
+    snakeScoreElement.textContent = score;
+    gameRunning = true;
+    
+    if (gameLoop) clearInterval(gameLoop);
+    gameLoop = setInterval(update, 150);
+}
+
+function handleKeyPress(e) {
+    if (!gameRunning) return;
+    
+    switch(e.key) {
+        case 'ArrowUp':
+            if (dy !== 1) { dx = 0; dy = -1; }
+            break;
+        case 'ArrowDown':
+            if (dy !== -1) { dx = 0; dy = 1; }
+            break;
+        case 'ArrowLeft':
+            if (dx !== 1) { dx = -1; dy = 0; }
+            break;
+        case 'ArrowRight':
+            if (dx !== -1) { dx = 1; dy = 0; }
+            break;
+    }
+}
+
+// Event listeners
+snakeRestartBtn.addEventListener('click', startGame);
+document.addEventListener('keydown', handleKeyPress);
+
+// Initialize snake game
+startGame();
+
+
+//Minesweeper
+// Script.js
+const numRows = 8;
+const numCols = 8;
+const numMines = 10;
+
+const gameBoard = document.getElementById("gameBoard");
+const restartBtn = document.getElementById("restartBtn");
+let board = [];
+
+function initializeBoard() {
+    board = [];
+    for (let i = 0; i < numRows; i++) {
+        board[i] = [];
+        for (let j = 0; j < numCols; j++) {
+            board[i][j] = {
+                isMine: false,
+                revealed: false,
+                flagged: false,
+                count: 0,
+            };
+        }
+    }
+
+    // Place mines randomly
+    let minesPlaced = 0;
+    while (minesPlaced < numMines) {
+        const row = Math.floor(Math.random() * numRows);
+        const col = Math.floor(Math.random() * numCols);
+        if (!board[row][col].isMine) {
+            board[row][col].isMine = true;
+            minesPlaced++;
+        }
+    }
+
+    // Calculate counts
+    for (let i = 0; i < numRows; i++) {
+        for (
+            let j = 0;
+            j < numCols;
+            j++
+        ) {
+            if (!board[i][j].isMine) {
+                let count = 0;
+                for (
+                    let dx = -1;
+                    dx <= 1;
+                    dx++
+                ) {
+                    for (
+                        let dy = -1;
+                        dy <= 1;
+                        dy++
+                    ) {
+                        const ni =
+                            i + dx;
+                        const nj =
+                            j + dy;
+                        if (
+                            ni >= 0 &&
+                            ni <
+                                numRows &&
+                            nj >= 0 &&
+                            nj <
+                                numCols &&
+                            board[ni][
+                                nj
+                            ].isMine
+                        ) {
+                            count++;
+                        }
+                    }
+                }
+                board[i][j].count =
+                    count;
+            }
+        }
+    }
+}
+
+function revealCell(row, col) {
+    if (
+        row < 0 ||
+        row >= numRows ||
+        col < 0 ||
+        col >= numCols ||
+        board[row][col].revealed
+    ) {
+        return;
+    }
+
+    board[row][col].revealed = true;
+
+    if (board[row][col].isMine) {
+        // Handle game over
+        /*alert(
+            "Game Over! You stepped on a mine."
+        );*/
+    } else if (
+        board[row][col].count === 0
+    ) {
+        // If cell has no mines nearby,
+        // Reveal adjacent cells
+        for (
+            let dx = -1;
+            dx <= 1;
+            dx++
+        ) {
+            for (
+                let dy = -1;
+                dy <= 1;
+                dy++
+            ) {
+                revealCell(
+                    row + dx,
+                    col + dy
+                );
+            }
+        }
+    }
+
+    renderBoard();
+}
+
+function flagCell(event, row, col) {
+    event.preventDefault(); // Prevent right-click menu
+
+    if (board[row][col].revealed) return; // Don't flag revealed cells
+
+    board[row][col].flagged = !board[row][col].flagged;
+    renderBoard();
+}
+
+function renderBoard() {
+    gameBoard.innerHTML = "";
+
+    for (let i = 0; i < numRows; i++) {
+        for (
+            let j = 0;
+            j < numCols;
+            j++
+        ) {
+            const cell =
+                document.createElement(
+                    "div"
+                );
+            cell.className = "cell";
+            if (board[i][j].revealed) {
+                cell.classList.add("revealed");
+                if (board[i][j].isMine) {
+                    cell.classList.add("mine");
+                    cell.textContent = "💣";
+                } else if (board[i][j].count > 0) {
+                    cell.textContent = board[i][j].count;
+                }
+            } else if (board[i][j].flagged) {
+                cell.classList.add("flagged");
+                cell.textContent = "🚩";
+            }
+            cell.addEventListener("click", () => revealCell(i, j));
+            cell.addEventListener("contextmenu", (event) => flagCell(event, i, j)); // Right-click to flag
+            gameBoard.appendChild(cell);
+        }
+        gameBoard.appendChild(
+            document.createElement("br")
+        );
+    }
+}
+
+// Restart game
+restartBtn.addEventListener("click", () => {
+    initializeBoard();
+    renderBoard();
+});
+
+// Prevent right-click menu on game board
+gameBoard.addEventListener("contextmenu", (event) => event.preventDefault());
+
+initializeBoard();
+renderBoard();

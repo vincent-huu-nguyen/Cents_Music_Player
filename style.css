@@ -281,3 +281,234 @@ h5{
     text-decoration: underline;
     text-decoration-color: #4550e6;
 }
+
+
+
+
+/*Game Board*/
+
+/* Initially hidden */
+.game {
+    width: 150px;
+    margin: 0 auto; 
+    opacity: 0; /* Hidden */
+    transition: opacity 3s ease, transform 3s ease;
+    display: none;
+}
+
+/* When active, make game visible */
+.game-container.active .game {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#slideleft{
+    display: none;
+}
+
+/* Hide slideright when active */
+.game-container.active #slideright {
+    display: none;
+}
+
+/* Show slideleft when active */
+.game-container.active #slideleft {
+    display: block;
+}
+
+
+.slideleft{
+    position: relative;
+    top: 260px;
+    left: 10px;
+    width: 200px;
+    opacity: 75%;
+}
+
+
+.slideright{
+    position: relative;
+    top: 10px;
+    left: 10px;    /*for centering the controls icons*/
+    width: 200px;
+    opacity: 75%;
+}
+
+/*Minesweeper*/
+.minesweeper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all children horizontally */
+    justify-content: center; /* Center all children vertically */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    margin-left: 50px;
+    height: 500px;
+    width: 400px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+.minesweeper:hover{
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+#gametitle {
+    text-align: center;
+}
+.board {
+    display: inline-block;
+    margin: 20px;
+}
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    cursor: pointer;
+
+    /* Default color for unrevealed tile text - now black */
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+}
+.revealed {
+    /* Color for revealed tiles - now transparent background */
+    background-color: transparent; /* No background */
+
+    /* Color for revealed tile text - now dark gray */
+    color: #333;
+}
+.flagged {
+    background-color: rgba(255, 255, 255, 0.3); /* Yellow background for flagged cells */
+    font-size: 24px;
+}
+.mine {
+    /* Color for mines */
+    background-color: rgba(255, 0, 0, 0.4);
+}
+#restartBtn {
+    border-radius: 10%;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.0);
+    cursor: pointer;
+}
+#restartBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.left-game-container {
+    position: relative;
+    top: 50%;
+    left: -50px; /* Position it closer so the arrow is visible */
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.left-game-container.active {
+    left: -300px; /* Slide it out when active */
+}
+
+/* Initially hidden */
+.left-game {
+    width: 150px;
+    margin: 0 auto; 
+    opacity: 0; /* Hidden */
+    transition: opacity 3s ease, transform 3s ease;
+    display: none;
+}
+
+/* When active, make left game visible */
+.left-game-container.active .left-game {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#slideleft-close{
+    display: none;
+}
+
+/* Hide slideleft-arrow when active */
+.left-game-container.active #slideleft-arrow {
+    display: none;
+}
+
+/* Show slideleft-close when active */
+.left-game-container.active #slideleft-close {
+    display: block;
+}
+
+.slideleft-close{
+    position: relative;
+    top: 260px;
+    left: 470px;
+    width: 200px;
+    opacity: 75%;
+}
+
+/* Snake Game */
+.snake-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    margin-right: 50px;
+    height: 500px;
+    width: 400px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.snake-game:hover{
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+}
+
+#snake-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#snakeCanvas {
+    border: 2px solid #000;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.snake-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#snakeRestartBtn {
+    border-radius: 10%;
+    padding: 10px 20px;
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.0);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#snakeRestartBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.snake-score {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.slideleft-arrow{
+    position: relative;
+    top: 10px;
+    left: 220px; /* Move it further right so it's visible */
+    width: 200px;
+    opacity: 75%;
+}

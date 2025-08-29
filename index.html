@@ -13,6 +13,24 @@
     <div class="background">
         <img src="assets/changes-Cents.jpg" id="bg-img">
     </div>
+    <div class="left-game-container">
+        <div class="slideleft-arrow" id="slideleft-arrow">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="slideleft-close" id="slideleft-close">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+        <div class="left-game" id="left-game">
+            <div class="snake-game">
+                <h1 id="snake-title">Snake Game</h1>
+                <canvas id="snakeCanvas" width="300" height="300"></canvas>
+                <div class="snake-controls">
+                    <button id="snakeRestartBtn">Restart Game</button>
+                    <div class="snake-score">Score: <span id="snakeScore">0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wrapper">
         <div class="container">
             <div class="player-img">
@@ -99,7 +117,22 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="game-container">
+        <div class="slideright" id="slideright">
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+        <div class="slideleft" id="slideleft">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="game" id="game">
+            <div class="minesweeper">
+                <h1 id="gametitle">Minesweeper</h1>
+                <div id="gameBoard"></div>
+                <button id="restartBtn">Restart Game</button>
+            </div>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
