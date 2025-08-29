@@ -202,24 +202,55 @@ h5{
 }
 
 .playlist h3{
-    font-size: 19px;
-    font-weight: 750;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000; /* Keep original black color */
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    padding-bottom: 5px;
+}
+
+.playlist h4{
+    font-size: 16px;
+    font-weight: 500;
+    color: #000; /* Keep original black color */
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
 }
 
 .playlist h4:hover{
-    transform: scale(110%);
+    transform: scale(1.02);
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .playlist img{
     display: block;
     height: auto;
-    width: 75%; 
-    margin: 0 0 0 12%;
+    width: 80px; 
+    margin: 20px auto;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;  
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.playlist img:hover {
+    transform: scale(1.1);
+    border-color: #000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .playlist-container.active .playlist {
@@ -265,8 +296,8 @@ h5{
     left: 186px;    /*for centering the controls icons*/
     width: 200px;
     opacity: 75%;
+    color: #000; /* Keep original black color */
 }
-
 
 .dropdown{
     position: relative;
@@ -274,12 +305,19 @@ h5{
     left: 186px;    /*for centering the controls icons*/
     width: 200px;
     opacity: 75%;
+    color: #000; /* Keep original black color */
 }
 
 #link{
+    color: #4550e6; /* Keep original blue color */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#link:hover {
     color: #4550e6;
-    text-decoration: underline;
-    text-decoration-color: #4550e6;
+    text-shadow: 0 0 10px rgba(69, 80, 230, 0.5);
 }
 
 
@@ -404,7 +442,6 @@ h5{
     top: 50%;
     left: -50px; /* Position it closer so the arrow is visible */
     z-index: 0;
-    transition: all 0.3s ease;
 }
 
 .left-game-container.active {
