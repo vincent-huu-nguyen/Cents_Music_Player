@@ -163,6 +163,12 @@ const songs = [
         cover: 'assets/starstruck-Cents.jpg',
         artist: 'Cents',
     },
+    {
+        path: 'assets/Drive.wav',
+        displayName: 'Drive',
+        cover: 'assets/Drive.jpg',
+        artist: 'Cents',
+    },
 ];
 
 let musicIndex = 0;
